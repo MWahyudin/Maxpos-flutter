@@ -3,7 +3,7 @@
 
 workflows:
     ios-app:
-        name: iOS App
+        name: Maxpos
         environment:
             vars:
                 XCODE_WORKSPACE: "{{ api }}"
