@@ -1,4 +1,4 @@
-package com.example.api
+package com.maxpos.app
 
 import io.flutter.embedding.android.FlutterActivity
 

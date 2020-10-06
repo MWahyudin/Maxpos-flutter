@@ -1,39 +1,41 @@
-import 'package:api/Screens/Slider/components/body.dart';
-import 'package:api/constant.dart';
-import 'package:api/Screens/Slider/components/slider.dart';
+
+import 'package:api/components/splash_screen.dart';
+import 'package:api/components/splash_screen_slider.dart';
+import 'package:api/user_preferences.dart';
 import 'package:flutter/material.dart';
 
-import 'Screens/Welcome/welcome_screen.dart';
+void main() {
+  runApp(MyApp());
+  // runApp(new MyApp())
+}
 
-// void main() {
-//   // runApp(MyApp());
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _MyAppState();
+  }
+  // _MyAppState createState() => new _MyAppState();
+}
 
-// }
 
-// class MyApp extends StatelessWidget {
-//   // This widget is the root of your application.
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       title: 'Maxpos Auth',
-//       theme: ThemeData(
-//         primaryColor: kPrimaryColor,
-//         scaffoldBackgroundColor: Colors.white,
-//       ),
-//       home: WelcomeScreen(),
-//     );
-//   }
-// }
 
-void main() => runApp(MyApp());
+class _MyAppState extends State<MyApp> {
+  bool isInstalled = false;
 
-class MyApp extends StatelessWidget {
+  _MyAppState() {
+    MySharedPreferences.instance
+        .getBooleanValue("isfirstRun")
+        .then((value) => setState(() {
+              isInstalled = value;
+            }));
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Body(),
+      title: 'Maxpos',
+      home: isInstalled ? SplashScreen() : SplashScreenSlider(),
     );
   }
 }

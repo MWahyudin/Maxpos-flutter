@@ -1,9 +1,9 @@
 import 'package:api/Screens/Slider/components/slider.dart';
 import 'package:api/Screens/Welcome/welcome_screen.dart';
 import 'package:api/constant.dart';
+import 'package:api/user_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 
 class Body extends StatefulWidget {
   @override
@@ -16,7 +16,7 @@ class _BodyState extends State<Body> {
 
   List<Widget> _pages = [
     SliderPage(
-      title: "Kemudahan",
+      title: "Kemudahan", 
       desciption:
           "Kemudahan dan kenyamanan dalam mengatur usaha anda gak perlu ribet , semua serba mudah",
       image: "assets/icons/kemudahan2.svg",
@@ -94,6 +94,13 @@ class _BodyState extends State<Body> {
                   child: (_currentPage == (_pages.length - 1))
                       ? GestureDetector(
                           onTap: () {
+                            MySharedPreferences.instance
+                                .setBooleanValue("isfirstRun", true);
+
+                            // Navigator.pushReplacement(
+                            //   context,
+                            //   MaterialPageRoute(builder: (_) => Login()),
+                            // );
                             Navigator.push(
                               context,
                               MaterialPageRoute(

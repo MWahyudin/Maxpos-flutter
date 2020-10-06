@@ -12,7 +12,8 @@ class RoundedInputField extends StatelessWidget {
     Key key,
     this.hintText = "Masukan Email",
     this.icon = Icons.email,
-    this.onChanged, this.controller,
+    this.onChanged,
+    this.controller,
     // this._emailController,
   }) : super(key: key);
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class Background extends StatelessWidget {
   final Widget child;
+
   const Background({
     Key key,
     @required this.child,
@@ -9,8 +10,11 @@ class Background extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+  // final _formKey = GlobalKey<FormState>();
+
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      //  key: _formKey,
       body: GestureDetector(
         onTap: () {
           FocusScope.of(context).requestFocus(
